@@ -147,23 +147,22 @@ const PredictorView = React.memo((props: {
             `}</style>
             <div className="absolute inset-0 swoop-bg"></div>
 
-            <div className="relative z-10 flex-grow w-full h-full flex flex-col items-center justify-between">
-                <header className="w-full flex flex-col items-center pt-8">
-                    <div className="w-full text-left px-6">
-                        <h1 className="text-4xl font-extrabold text-white tracking-normal leading-tight">
-                            Rocket Queen<br/>Predictor
-                        </h1>
-                    </div>
+            <div className="relative z-10 w-full h-full flex flex-col">
+                <header className="w-full h-[40vh] flex-shrink-0 flex items-center px-6">
+                    <h1 className="text-4xl font-extrabold text-white tracking-normal leading-tight">
+                        Rocket Queen<br/>Predictor
+                    </h1>
+                </header>
+                
+                <main className="flex-grow w-full flex flex-col items-center justify-start px-4 -mt-[20vh]">
                     <img 
                         src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
                         alt="Rocket Queen" 
-                        className="w-full max-w-[340px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10 mt-4"
+                        className="w-full max-w-[340px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10"
                         draggable="false" onContextMenu={(e) => e.preventDefault()}
                     />
-                </header>
                 
-                <main className="flex-grow w-full flex flex-col items-center justify-center px-4">
-                    <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center">
+                    <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mt-4">
                         <div className="wandering-arc-1"></div>
                         <div className="wandering-arc-2"></div>
                         <div className="wandering-arc-3"></div>
@@ -185,7 +184,7 @@ const PredictorView = React.memo((props: {
                     </div>
                 </main>
 
-                <footer className="w-full h-20 bg-white flex items-center justify-between px-6 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] mt-auto">
+                <footer className="w-full h-20 bg-white flex items-center justify-between px-6 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] flex-shrink-0">
                     <p className="text-4xl font-extrabold text-[#d10000] font-sans tracking-tighter">{currentTime}</p>
                     <button onClick={props.onOpenSidebar} className="p-2 text-black" aria-label={t('openMenu')}>
                         <MenuIcon className="w-8 h-8" />
