@@ -148,7 +148,7 @@ const PredictorView = React.memo((props: {
             <div className="absolute inset-0 swoop-bg"></div>
 
             <div className="relative z-10 w-full h-full flex flex-col">
-                <header className="w-full flex-shrink-0 pt-12 px-6">
+                <header className="w-full flex-shrink-0 pt-8 px-6">
                     <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-normal leading-tight">
                         Rocket Queen<br/>Predictor
                     </h1>
