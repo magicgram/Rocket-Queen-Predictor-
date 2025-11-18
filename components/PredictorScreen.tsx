@@ -148,39 +148,41 @@ const PredictorView = React.memo((props: {
             <div className="absolute inset-0 swoop-bg"></div>
 
             <div className="relative z-10 w-full h-full flex flex-col">
-                <header className="w-full h-[40vh] flex-shrink-0 flex items-center px-6">
-                    <h1 className="text-4xl font-extrabold text-white tracking-normal leading-tight">
+                <header className="w-full flex-shrink-0 pt-12 px-6">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-normal leading-tight">
                         Rocket Queen<br/>Predictor
                     </h1>
                 </header>
                 
-                <main className="flex-grow w-full flex flex-col items-center justify-start px-4 -mt-[20vh]">
-                    <img 
-                        src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
-                        alt="Rocket Queen" 
-                        className="w-full max-w-[340px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10"
-                        draggable="false" onContextMenu={(e) => e.preventDefault()}
-                    />
-                
-                    <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mt-4">
-                        <div className="wandering-arc-1"></div>
-                        <div className="wandering-arc-2"></div>
-                        <div className="wandering-arc-3"></div>
-                        <div className="absolute inset-[24px] rounded-full border border-red-200"></div>
-                        
-                        <p className="font-sans font-black text-black whitespace-nowrap text-5xl md:text-6xl">
-                           {props.displayValue}
-                        </p>
-                    </div>
+                <main className="flex-grow w-full flex flex-col items-center justify-center px-4 overflow-y-auto">
+                    <div className="w-full flex flex-col items-center py-4">
+                        <img 
+                            src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
+                            alt="Rocket Queen" 
+                            className="w-full max-w-[300px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10 -mt-4"
+                            draggable="false" onContextMenu={(e) => e.preventDefault()}
+                        />
+                    
+                        <div className="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0 flex items-center justify-center mt-4">
+                            <div className="wandering-arc-1"></div>
+                            <div className="wandering-arc-2"></div>
+                            <div className="wandering-arc-3"></div>
+                            <div className="absolute inset-[24px] rounded-full border border-red-200"></div>
+                            
+                            <p className="font-sans font-black text-black whitespace-nowrap text-5xl md:text-6xl">
+                               {props.displayValue}
+                            </p>
+                        </div>
 
-                    <div className="w-full max-w-xs mt-6">
-                         <button 
-                            onClick={buttonAction}
-                            disabled={isButtonDisabled}
-                            className="w-full py-4 bg-[#d10000] rounded-xl text-white font-bold text-xl tracking-wider uppercase transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:bg-red-800 active:scale-95"
-                        >
-                            {buttonText}
-                        </button>
+                        <div className="w-full max-w-xs mt-6">
+                             <button 
+                                onClick={buttonAction}
+                                disabled={isButtonDisabled}
+                                className="w-full py-4 bg-[#d10000] rounded-xl text-white font-bold text-xl tracking-wider uppercase transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:bg-red-800 active:scale-95"
+                            >
+                                {buttonText}
+                            </button>
+                        </div>
                     </div>
                 </main>
 
