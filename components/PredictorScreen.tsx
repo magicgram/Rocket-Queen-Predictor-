@@ -154,27 +154,27 @@ const PredictorView = React.memo((props: {
                     </h1>
                 </header>
                 
-                <main className="flex-grow w-full flex flex-col items-center justify-center px-4 overflow-y-auto">
-                    <div className="w-full flex flex-col items-center py-4">
+                <main className="flex-grow w-full flex flex-col items-center justify-center px-4">
+                    <div className="w-full flex flex-col items-center">
                         <img 
                             src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
                             alt="Rocket Queen" 
-                            className="w-full max-w-[300px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10 -mt-4"
+                            className="w-full max-w-[200px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10"
                             draggable="false" onContextMenu={(e) => e.preventDefault()}
                         />
                     
-                        <div className="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0 flex items-center justify-center mt-4">
+                        <div className="relative w-36 h-36 md:w-44 md:h-44 flex-shrink-0 flex items-center justify-center mt-2">
                             <div className="wandering-arc-1"></div>
                             <div className="wandering-arc-2"></div>
                             <div className="wandering-arc-3"></div>
                             <div className="absolute inset-[24px] rounded-full border border-red-200"></div>
                             
-                            <p className="font-sans font-black text-black whitespace-nowrap text-5xl md:text-6xl">
+                            <p className="font-sans font-black text-black whitespace-nowrap text-4xl md:text-5xl">
                                {props.displayValue}
                             </p>
                         </div>
 
-                        <div className="w-full max-w-xs mt-6">
+                        <div className="w-full max-w-xs mt-4">
                              <button 
                                 onClick={buttonAction}
                                 disabled={isButtonDisabled}
