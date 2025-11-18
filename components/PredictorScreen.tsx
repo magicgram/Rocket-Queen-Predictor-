@@ -50,8 +50,8 @@ const LimitReachedView = React.memo(({ handleDepositRedirect }: { handleDepositR
 
             <main className="flex-grow w-full flex flex-col items-center justify-center text-center px-6 -mt-20">
                  <img 
-                    src="https://i.postimg.cc/W4cFfhV3/Picsart-25-11-16-12-52-34-932.png" 
-                    alt="Aviator Plane" 
+                    src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
+                    alt="Rocket Queen" 
                     className="w-full max-w-[280px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10 opacity-50"
                     draggable="false" onContextMenu={(e) => e.preventDefault()}
                 />
@@ -150,14 +150,14 @@ const PredictorView = React.memo((props: {
             <div className="relative z-10 flex-grow w-full h-full flex flex-col items-center justify-between">
                 <header className="w-full text-left p-6 pt-8">
                     <h1 className="text-4xl font-extrabold text-white tracking-normal leading-tight">
-                        AVIATOR<br/>PREDICTOR VIP
+                        Rocket Queen<br/>Predictor
                     </h1>
                 </header>
                 
                 <main className="flex-grow w-full flex flex-col items-center justify-start pt-4 px-4">
                     <img 
-                        src="https://i.postimg.cc/W4cFfhV3/Picsart-25-11-16-12-52-34-932.png" 
-                        alt="Aviator Plane" 
+                        src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
+                        alt="Rocket Queen" 
                         className="w-full max-w-[340px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10"
                         draggable="false" onContextMenu={(e) => e.preventDefault()}
                     />
