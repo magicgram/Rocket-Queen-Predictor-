@@ -148,21 +148,22 @@ const PredictorView = React.memo((props: {
             <div className="absolute inset-0 swoop-bg"></div>
 
             <div className="relative z-10 flex-grow w-full h-full flex flex-col items-center justify-between">
-                <header className="w-full text-left p-6 pt-8">
-                    <h1 className="text-4xl font-extrabold text-white tracking-normal leading-tight">
-                        Rocket Queen<br/>Predictor
-                    </h1>
-                </header>
-                
-                <main className="flex-grow w-full flex flex-col items-center justify-start pt-4 px-4">
+                <header className="w-full flex flex-col items-center pt-8">
+                    <div className="w-full text-left px-6">
+                        <h1 className="text-4xl font-extrabold text-white tracking-normal leading-tight">
+                            Rocket Queen<br/>Predictor
+                        </h1>
+                    </div>
                     <img 
                         src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
                         alt="Rocket Queen" 
-                        className="w-full max-w-[340px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10"
+                        className="w-full max-w-[340px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10 mt-4"
                         draggable="false" onContextMenu={(e) => e.preventDefault()}
                     />
-
-                    <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mt-4">
+                </header>
+                
+                <main className="flex-grow w-full flex flex-col items-center justify-center px-4">
+                    <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center">
                         <div className="wandering-arc-1"></div>
                         <div className="wandering-arc-2"></div>
                         <div className="wandering-arc-3"></div>
