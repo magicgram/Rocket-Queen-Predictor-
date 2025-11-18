@@ -101,55 +101,61 @@ const PredictorView = React.memo((props: {
     const isButtonDisabled = props.isPredicting;
 
     return (
-        <div className="w-full h-screen bg-[#f0f0f0] text-black flex flex-col font-poppins relative overflow-hidden">
+        <div className="w-full h-screen text-white flex flex-col font-poppins relative overflow-hidden"
+             style={{ background: 'linear-gradient(160deg, #4f0070 0%, #a12c8e 30%, #f77062 70%, #ffc55c 100%)' }}
+        >
             <style>{`
-                .swoop-bg::before {
+                .swoop-bg-new::before {
                     content: '';
                     position: absolute;
                     top: -25vh;
                     left: 50%;
                     transform: translateX(-50%);
-                    width: 200vw;
-                    height: 68vh;
-                    background: linear-gradient(180deg, #d92121, #b50000);
+                    width: 150vw;
+                    height: 65vh;
+                    background: linear-gradient(180deg, #500e62, #3b0a4a);
                     border-radius: 0 0 50% 50%;
                     z-index: 0;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
                 }
-                .wandering-arc-1 {
-                    position: absolute;
-                    inset: 0;
-                    border-radius: 50%;
-                    border: 5px solid transparent;
-                    border-top-color: #d10000;
-                    animation: spin-slow 5s linear infinite;
+                 .wave-1 {
+                  position: absolute;
+                  bottom: 15%;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 250%;
+                  padding-bottom: 250%;
+                  background: radial-gradient(circle, rgba(255, 112, 98, 0.15) 20%, transparent 60%);
+                  border-radius: 50%;
+                  animation: wave-anim 15s infinite linear;
+                  opacity: 0.5;
                 }
-                .wandering-arc-2 {
-                    position: absolute;
-                    inset: 10px;
-                    border-radius: 50%;
-                    border: 4px solid transparent;
-                    border-top-color: #e53e3e;
-                    border-right-color: #e53e3e;
-                    animation: spin-medium 7s linear infinite reverse;
+                .wave-2 {
+                  position: absolute;
+                  bottom: 10%;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 200%;
+                  padding-bottom: 200%;
+                  background: radial-gradient(circle, rgba(161, 44, 142, 0.2) 20%, transparent 60%);
+                  border-radius: 50%;
+                  animation: wave-anim 20s infinite linear reverse;
+                  opacity: 0.7;
                 }
-                .wandering-arc-3 {
-                    position: absolute;
-                    inset: 0; 
-                    border-radius: 50%;
-                    border: 5px solid transparent;
-                    border-left-color: #d10000;
-                    animation: spin-slow 5s linear infinite;
-                    transform: rotate(180deg);
+                 @keyframes wave-anim {
+                    from { transform: translateX(-50%) rotate(0deg); }
+                    to { transform: translateX(-50%) rotate(360deg); }
                 }
-                @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-                @keyframes spin-medium { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
             `}</style>
-            <div className="absolute inset-0 swoop-bg"></div>
+            
+            {/* Background elements */}
+            <div className="absolute inset-0 swoop-bg-new z-0"></div>
+            <div className="wave-1"></div>
+            <div className="wave-2"></div>
 
             <div className="relative z-10 w-full h-full flex flex-col">
                 <header className="w-full flex-shrink-0 pt-6 px-6">
-                    <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-normal leading-tight">
+                    <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-normal leading-tight" style={{ textShadow: '0 3px 6px rgba(0,0,0,0.4)' }}>
                         Rocket Queen<br/>Predictor
                     </h1>
                 </header>
@@ -160,7 +166,7 @@ const PredictorView = React.memo((props: {
                         <img 
                             src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
                             alt="Rocket Queen" 
-                            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[280px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.2)] select-none z-10"
+                            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[280px] drop-shadow-[0_10px_15px_rgba(0,0,0,0.4)] select-none z-10"
                             draggable="false" onContextMenu={(e) => e.preventDefault()}
                         />
                     </div>
@@ -168,12 +174,11 @@ const PredictorView = React.memo((props: {
                     {/* Content area for dial and button */}
                     <div className="w-full flex flex-col items-center justify-center" style={{ flex: '1 1 55%' }}>
                         <div className="relative w-44 h-44 flex-shrink-0 flex items-center justify-center">
-                            <div className="wandering-arc-1"></div>
-                            <div className="wandering-arc-2"></div>
-                            <div className="wandering-arc-3"></div>
-                            <div className="absolute inset-[24px] rounded-full border border-red-200"></div>
+                            <div className="absolute inset-0 rounded-full bg-black/20"></div>
+                            <div className="absolute inset-0 rounded-full border-2 border-pink-400/80 shadow-[0_0_15px_rgba(236,72,153,0.5)]"></div>
+                            <div className="absolute inset-2 rounded-full border border-pink-300/60"></div>
                             
-                            <p className="font-sans font-black text-black whitespace-nowrap text-5xl">
+                            <p className="font-sans font-black text-white whitespace-nowrap text-5xl z-10" style={{textShadow: '0 2px 4px rgba(0,0,0,0.5)'}}>
                                {props.displayValue}
                             </p>
                         </div>
@@ -182,7 +187,7 @@ const PredictorView = React.memo((props: {
                              <button 
                                 onClick={buttonAction}
                                 disabled={isButtonDisabled}
-                                className="w-full py-4 bg-[#d10000] rounded-xl text-white font-bold text-xl tracking-wider uppercase transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:bg-red-800 active:scale-95"
+                                className="w-full py-4 bg-gradient-to-r from-[#d838c3] to-[#a63ee8] rounded-lg text-white font-bold text-xl tracking-wider uppercase transition-all duration-300 disabled:opacity-50 shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_2px_2px_rgba(255,255,255,0.2)] hover:shadow-xl hover:brightness-110 active:scale-95"
                             >
                                 {buttonText}
                             </button>
@@ -190,9 +195,9 @@ const PredictorView = React.memo((props: {
                     </div>
                 </main>
 
-                <footer className="w-full h-20 bg-white flex items-center justify-between px-6 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] flex-shrink-0">
-                    <p className="text-4xl font-extrabold text-[#d10000] font-sans tracking-tighter">{currentTime}</p>
-                    <button onClick={props.onOpenSidebar} className="p-2 text-black" aria-label={t('openMenu')}>
+                <footer className="w-full h-20 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-between px-6 flex-shrink-0">
+                    <p className="text-4xl font-extrabold text-white font-sans tracking-tighter">{currentTime}</p>
+                    <button onClick={props.onOpenSidebar} className="p-2 text-white" aria-label={t('openMenu')}>
                         <MenuIcon className="w-8 h-8" />
                     </button>
                 </footer>
