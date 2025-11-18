@@ -146,6 +146,15 @@ const PredictorView = React.memo((props: {
                     from { transform: translateX(-50%) rotate(0deg); }
                     to { transform: translateX(-50%) rotate(360deg); }
                 }
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                .animated-glow-border {
+                    animation: spin 3s linear infinite;
+                    background: conic-gradient(from 90deg at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, #f77062 100%);
+                    filter: drop-shadow(0 0 5px #f77062);
+                }
             `}</style>
             
             {/* Background elements */}
@@ -172,11 +181,15 @@ const PredictorView = React.memo((props: {
                     </div>
                 
                     {/* Content area for dial and button */}
-                    <div className="w-full flex flex-col items-center justify-center" style={{ flex: '1 1 55%' }}>
+                    <div className="w-full flex flex-col items-center justify-center pb-10" style={{ flex: '1 1 55%' }}>
                         <div className="relative w-44 h-44 flex-shrink-0 flex items-center justify-center">
+                            {/* Static circles */}
                             <div className="absolute inset-0 rounded-full bg-black/20"></div>
                             <div className="absolute inset-0 rounded-full border-2 border-pink-400/80 shadow-[0_0_15px_rgba(236,72,153,0.5)]"></div>
                             <div className="absolute inset-2 rounded-full border border-pink-300/60"></div>
+
+                            {/* Animated half-circle */}
+                            <div className="absolute inset-[-3px] rounded-full animated-glow-border"></div>
                             
                             <p className="font-sans font-black text-white whitespace-nowrap text-5xl z-10" style={{textShadow: '0 2px 4px rgba(0,0,0,0.5)'}}>
                                {props.displayValue}
