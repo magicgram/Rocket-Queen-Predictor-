@@ -148,7 +148,7 @@ const PredictorView = React.memo((props: {
             <div className="absolute inset-0 swoop-bg"></div>
 
             <div className="relative z-10 w-full h-full flex flex-col">
-                <header className="w-full flex-shrink-0 pt-8 px-6">
+                <header className="w-full flex-shrink-0 pt-6 px-6">
                     <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-normal leading-tight">
                         Rocket Queen<br/>Predictor
                     </h1>
@@ -156,7 +156,7 @@ const PredictorView = React.memo((props: {
                 
                  <main className="flex-grow w-full flex flex-col items-center px-4">
                     {/* Spacer for the image */}
-                    <div className="w-full relative" style={{ flex: '1 1 38%' }}>
+                    <div className="w-full relative" style={{ flex: '1 1 42%' }}>
                         <img 
                             src="https://i.postimg.cc/3N7cr754/Picsart-25-11-18-12-04-40-325.png" 
                             alt="Rocket Queen" 
@@ -166,7 +166,7 @@ const PredictorView = React.memo((props: {
                     </div>
                 
                     {/* Content area for dial and button */}
-                    <div className="w-full flex flex-col items-center justify-center" style={{ flex: '1 1 62%' }}>
+                    <div className="w-full flex flex-col items-center justify-center" style={{ flex: '1 1 58%' }}>
                         <div className="relative w-44 h-44 flex-shrink-0 flex items-center justify-center">
                             <div className="wandering-arc-1"></div>
                             <div className="wandering-arc-2"></div>
