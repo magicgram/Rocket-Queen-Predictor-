@@ -28,9 +28,9 @@ const DepositMessage: React.FC<{
 }> = React.memo(({ onBack, onRegister, isRegistering }) => {
   const { t } = useLanguage();
   return (
-    <div className="w-full max-w-sm mx-auto text-black text-center animate-fade-in-up">
-      <h2 className="text-xl font-russo font-bold mb-4">{t('depositMessageTitle')}</h2>
-      <div className="mb-6 font-sans space-y-3 text-gray-700 text-sm">
+    <div className="w-full max-w-sm mx-auto text-white text-center animate-fade-in-up">
+      <h2 className="text-2xl font-russo font-bold mb-4">{t('depositMessageTitle')}</h2>
+      <div className="mb-6 font-poppins space-y-3 text-gray-200 text-sm">
           <p>{t('depositMessageSync')}</p>
           <p>{t('depositMessageDeposit')}</p>
           <p>{t('depositMessageAccess')}</p>
@@ -39,7 +39,7 @@ const DepositMessage: React.FC<{
         <button
           onClick={onRegister}
           disabled={isRegistering}
-          className="w-full py-4 bg-[#ef4444] text-white font-poppins font-bold text-lg rounded-full transition-all hover:bg-red-600 active:bg-red-700 disabled:opacity-50"
+          className="w-full py-3 bg-gradient-to-r from-pink-600 to-fuchsia-600 text-white font-poppins font-bold text-lg uppercase rounded-full transition-all hover:brightness-110 active:scale-95 disabled:opacity-50 shadow-lg shadow-black/30"
         >
           {isRegistering ? (
             <div className="flex justify-center items-center">
@@ -55,7 +55,7 @@ const DepositMessage: React.FC<{
         </button>
         <button
           onClick={onBack}
-          className="w-full py-3 bg-gray-200 text-black font-poppins font-bold text-lg rounded-full transition-colors hover:bg-gray-300"
+          className="w-full py-3 bg-transparent border-2 border-white text-white font-poppins font-bold text-lg uppercase rounded-full transition-colors hover:bg-white/10"
         >
           {t('back').toUpperCase()}
         </button>
@@ -80,14 +80,14 @@ const ReDepositMessage: React.FC<{
 }> = React.memo(({ onBack, onRegister, isRegistering }) => {
   const { t } = useLanguage();
   return (
-    <div className="w-full max-w-sm mx-auto text-black text-center animate-fade-in-up">
-      <h2 className="text-xl font-russo font-bold mb-4">{t('reDepositMessageTitle')}</h2>
-      <p className="mb-6 font-sans text-gray-700 text-sm">{t('reDepositMessageContinue')}</p>
+    <div className="w-full max-w-sm mx-auto text-white text-center animate-fade-in-up">
+      <h2 className="text-2xl font-russo font-bold mb-4">{t('reDepositMessageTitle')}</h2>
+      <p className="mb-6 font-poppins text-gray-200 text-sm">{t('reDepositMessageContinue')}</p>
       <div className="space-y-4">
         <button
           onClick={onRegister}
           disabled={isRegistering}
-          className="w-full py-4 bg-[#ef4444] text-white font-poppins font-bold text-lg rounded-full transition-all hover:bg-red-600 active:bg-red-700 disabled:opacity-50"
+          className="w-full py-3 bg-gradient-to-r from-pink-600 to-fuchsia-600 text-white font-poppins font-bold text-lg uppercase rounded-full transition-all hover:brightness-110 active:scale-95 disabled:opacity-50 shadow-lg shadow-black/30"
         >
           {isRegistering ? (
             <div className="flex justify-center items-center">
@@ -103,7 +103,7 @@ const ReDepositMessage: React.FC<{
         </button>
         <button
           onClick={onBack}
-          className="w-full py-3 bg-gray-200 text-black font-poppins font-bold text-lg rounded-full transition-colors hover:bg-gray-300"
+          className="w-full py-3 bg-transparent border-2 border-white text-white font-poppins font-bold text-lg uppercase rounded-full transition-colors hover:bg-white/10"
         >
           {t('back').toUpperCase()}
         </button>
@@ -205,96 +205,98 @@ const LoginScreen: React.FC<LoginScreenProps> = ({
   const handleBackFromReDeposit = useCallback(() => setNeedsReDeposit(false), []);
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-white font-poppins">
-      <header className="w-full h-[45vh] min-h-[320px] relative z-10">
-          <img 
-              src="https://i.postimg.cc/L8ftJHbq/retouch-2025111710482926-(1).jpg" 
-              alt="Header" 
-              className="w-full h-full object-cover object-center"
-              draggable="false" onContextMenu={(e) => e.preventDefault()}
-          />
-           <div className="absolute top-6 right-4 flex items-center space-x-2">
-            <button onClick={onOpenGuide} className="p-2 rounded-full bg-black/20 text-white backdrop-blur-sm transition-colors hover:bg-black/40" aria-label="Open Guide">
-                <GuideIcon className="w-6 h-6" />
-            </button>
-            <button onClick={onOpenSidebar} className="p-2 rounded-full bg-black/20 text-white backdrop-blur-sm transition-colors hover:bg-black/40" aria-label="Open Menu">
-                <MenuIcon className="w-6 h-6" />
-            </button>
-          </div>
-      </header>
+    <div 
+        className="w-full min-h-screen flex flex-col items-center justify-between p-4 relative overflow-hidden font-poppins" 
+        style={{ background: 'linear-gradient(165deg, #3d0363, #d92d98, #fd9355)' }}
+    >
+      <div className="absolute top-6 right-4 flex items-center space-x-2 z-30">
+        <button onClick={onOpenGuide} className="p-2 rounded-full bg-black/20 text-white backdrop-blur-sm transition-colors hover:bg-black/40" aria-label="Open Guide">
+            <GuideIcon className="w-6 h-6" />
+        </button>
+        <button onClick={onOpenSidebar} className="p-2 rounded-full bg-black/20 text-white backdrop-blur-sm transition-colors hover:bg-black/40" aria-label="Open Menu">
+            <MenuIcon className="w-6 h-6" />
+        </button>
+      </div>
 
-      <main className="w-full flex flex-col items-center flex-grow -mt-6 md:-mt-12 z-20 px-4 pb-8">
-          {needsDeposit ? (
-             <div className="w-full max-w-sm bg-white rounded-2xl p-8 shadow-2xl text-black border border-red-100">
-                <DepositMessage onBack={handleBackFromDeposit} onRegister={handleRegister} isRegistering={isRegistering} />
-             </div>
-          ) : needsReDeposit ? (
-             <div className="w-full max-w-sm bg-white rounded-2xl p-8 shadow-2xl text-black border border-red-100">
-                <ReDepositMessage onBack={handleBackFromReDeposit} onRegister={handleRegister} isRegistering={isRegistering} />
-             </div>
-          ) : (
-              <div className="w-full max-w-sm">
-                  <div className="w-full bg-white text-black rounded-3xl p-6 md:p-8 shadow-2xl space-y-4 border border-red-100">
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                            <UserIcon className="h-5 w-5 text-gray-400" />
+      <main className="flex flex-col items-center justify-center flex-grow w-full max-w-sm text-center z-20">
+        {needsDeposit ? (
+            <div className="w-full bg-black/20 backdrop-blur-md rounded-2xl p-6 md:p-8 text-white">
+              <DepositMessage onBack={handleBackFromDeposit} onRegister={handleRegister} isRegistering={isRegistering} />
+            </div>
+        ) : needsReDeposit ? (
+            <div className="w-full bg-black/20 backdrop-blur-md rounded-2xl p-6 md:p-8 text-white">
+              <ReDepositMessage onBack={handleBackFromReDeposit} onRegister={handleRegister} isRegistering={isRegistering} />
+            </div>
+        ) : (
+          <>
+            <img src="https://i.postimg.cc/T3YfXCF3/Picsart-25-11-18-15-14-16-994.png" alt={t('unlockPredictions')} className="w-36 h-36 rounded-full object-cover mb-4 shadow-lg" draggable="false" onContextMenu={(e) => e.preventDefault()}/>
+            <h1 className="text-4xl font-russo uppercase text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>{t('unlockPredictions')}</h1>
+            <p className="text-sm font-poppins font-light text-white/80 mt-2 mb-6 uppercase">{t('enterPlayerIdToSync')}</p>
+            
+            <div className="w-full space-y-4">
+                <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                        <UserIcon className="h-5 w-5 text-gray-300" />
+                    </div>
+                    <input
+                        id="playerId"
+                        type="text"
+                        value={playerId}
+                        onChange={(e) => setPlayerId(e.target.value)}
+                        placeholder={t('playerIdLabel')}
+                        className="w-full pl-12 pr-5 py-3 bg-black/30 border border-white/20 text-white placeholder-gray-300 font-poppins text-base rounded-full focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
+                    />
+                </div>
+
+                <button
+                    onClick={handleContinue}
+                    disabled={isLoading || !playerId}
+                    className="w-full py-3 bg-gradient-to-r from-pink-600 to-fuchsia-600 text-white font-poppins font-bold text-lg uppercase rounded-full transition-all hover:brightness-110 active:scale-95 disabled:opacity-50 shadow-lg shadow-black/30"
+                >
+                    {isLoading ? (
+                        <div className="flex justify-center items-center h-[28px]">
+                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
                         </div>
-                        <input
-                            id="playerId"
-                            type="text"
-                            value={playerId}
-                            onChange={(e) => setPlayerId(e.target.value)}
-                            placeholder={t('playerIdLabel')}
-                            className="w-full pl-12 pr-5 py-4 bg-[#fdebeb] border-none text-gray-700 placeholder-gray-500 font-sans text-base rounded-full focus:outline-none focus:ring-2 focus:ring-red-300 transition"
-                        />
-                      </div>
-  
-                      <button
-                          onClick={handleContinue}
-                          disabled={isLoading || !playerId}
-                          className="w-full py-4 bg-red-500 text-white font-russo font-bold text-lg uppercase rounded-full transition-all hover:bg-red-600 active:bg-red-700 disabled:opacity-50 shadow-md"
-                      >
-                          {isLoading ? (
-                              <div className="flex justify-center items-center h-[28px]">
-                                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                  </svg>
-                              </div>
-                          ) : (
-                             t('continue')
-                          )}
-                      </button>
+                    ) : (
+                       t('continue')
+                    )}
+                </button>
+            </div>
 
-                      <p className="text-center text-xs text-gray-500 font-sans uppercase font-semibold pt-2">{t('dontHaveAccount')}</p>
-  
-                      <button
-                          onClick={handleRegister}
-                          disabled={isRegistering}
-                          className="w-full py-3 bg-slate-200 text-gray-800 font-russo font-bold text-lg uppercase rounded-full transition-all hover:bg-slate-300 disabled:opacity-50"
-                      >
-                        {isRegistering ? (
-                            <div className="flex justify-center items-center h-[28px]">
-                                <svg className="animate-spin h-5 w-5 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                </svg>
-                            </div>
-                        ) : (
-                           t('registerHere').toUpperCase()
-                        )}
-                      </button>
+            <p className="text-center text-xs text-white/80 font-poppins pt-6">{t('dontHaveAccount')}</p>
+            
+            <div className="w-full mt-2">
+              <button
+                  onClick={handleRegister}
+                  disabled={isRegistering}
+                  className="w-full py-3 bg-transparent border-2 border-white text-white font-poppins font-bold text-lg uppercase rounded-full transition-all hover:bg-white/10 disabled:opacity-50"
+              >
+                {isRegistering ? (
+                    <div className="flex justify-center items-center h-[28px]">
+                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                ) : (
+                   t('registerHere').toUpperCase()
+                )}
+              </button>
+            </div>
 
-                  </div>
-                  {error && (
-                      <div className="w-full mt-4 p-3 text-center text-sm bg-red-100 text-red-800 border border-red-300 font-sans rounded-lg">
-                          {error}
-                      </div>
-                  )}
-              </div>
-          )}
-           <p className="mt-8 text-gray-400 font-sans">v10.5.9</p>
+            {error && (
+                <div className="w-full mt-4 p-3 text-center text-sm bg-red-500/50 text-white border border-red-400/50 font-poppins rounded-lg">
+                    {error}
+                </div>
+            )}
+          </>
+        )}
       </main>
+
+      <p className="text-white/50 text-sm font-poppins z-20 pb-2">v11.8.0</p>
     </div>
   );
 };
